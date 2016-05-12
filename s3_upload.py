@@ -16,7 +16,7 @@ v1.0.0
 from __future__ import print_function
 import os
 import sys
-from time import strftime, sleep
+import argparse
 import boto3
 from botocore.exceptions import ClientError
 
