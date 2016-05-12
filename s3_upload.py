@@ -20,13 +20,9 @@ from time import strftime, sleep
 import boto3
 from botocore.exceptions import ClientError
 
-VERSION_LABEL = strftime("%Y%m%d%H%M%S")
-BUCKET_KEY = os.getenv('APPLICATION_NAME') + '/' + VERSION_LABEL + \
-    '-bitbucket_builds.zip'
-
-def upload_to_s3(artifact):
+def upload_to_s3(bucket, artefact, bucket_key):
     """
-    Uploads an artifact to Amazon S3
+    Uploads an artefact to Amazon S3
     """
     try:
         client = boto3.client('s3')
@@ -36,20 +32,27 @@ def upload_to_s3(artifact):
     try:
         client.put_object(
             Body=open(artifact, 'rb'),
-            Bucket=os.getenv('S3_BUCKET_NAME'),
-            Key=BUCKET_KEY
+            Bucket=bucket,
+            Key=bucket_key
         )
     except ClientError as err:
         print("Failed to upload artifact to S3.\n" + str(err))
         return False
     except IOError as err:
-        print("Failed to access artifact.zip in this directory.\n" + str(err))
+        print("Failed to access artefact in this directory.\n" + str(err))
         return False
     return True
 
 
 def main():
-    if not upload_to_s3(os.getenv('ARTEFACT_NAME')):
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("bucket", help="Name of the existing S3 bucket")
+    parser.add_argument("artefact", help="Name of the artefact to be uploaded to S3")
+    parser.add_argument("bucket_key", help="Name of the S3 Bucket key")
+    args = parser.parse_args()
+
+    if not upload_to_s3(args.bucket, args.artefact, args.bucket_key):
         sys.exit(1)
 
 if __name__ == "__main__":

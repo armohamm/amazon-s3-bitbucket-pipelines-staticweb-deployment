@@ -1,6 +1,8 @@
 # Upload to Amazon S3
 An example repository to demonstrate the Amazon S3 upload for Bitbucket pipelines addon. This example uploads an artefact to an existing S3 bucket. 
 
+Uploading artefacts to S3 could be used in several contexts, in conjunction with the other sample integrations. You could upload a cloudformation template, or a Elastic Beanstalk deployable. You could also upload to S3 an artefact which acts as an input to the the Source stage of an AWS CodePipeline, and triggers the pipeline.
+
 
 ## How To Use It
 * Create a S3 bucket to hold the artefact(s)
@@ -17,6 +19,7 @@ Note that the above permissions are more than what is required in a real scenari
 * `AWS_DEFAULT_REGION`:  Region where the target Elastic Beanstalk application is.
 * `S3_BUCKET_NAME`: Name of target S3 bucket.
 * `ARTEFACT_NAME`: Name of the artefact to be uploaded.
+* `TARGET_NAME`: Name of the S3 Bucket key.
 
 
 # License
