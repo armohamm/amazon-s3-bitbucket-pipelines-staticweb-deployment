@@ -1,12 +1,10 @@
 # Upload to Amazon S3
 An example repository to demonstrate the Amazon S3 upload for Bitbucket pipelines addon. This example uploads an artefact to an existing S3 bucket. 
 
-Uploading artefacts to S3 could be used in several contexts, in conjunction with the other sample integrations. You could upload a cloudformation template, or a Elastic Beanstalk deployable. You could also upload to S3 an artefact which acts as an input to the the Source stage of an AWS CodePipeline, and triggers the pipeline.
-
-
 ## How To Use It
 * Create a S3 bucket to hold the artefact(s)
 * Add/Modify the required Environment Variables below
+* Edit the bitbucket-pipelines.yml file, and update the command line parameters for the python script
 
 ## Required Permissions in AWS
 It is recommended you [create](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) a separate user account used for this deploy process.  This user should be associated with a group that has the `AmazonS3FullAccess` [AWS managed policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) attached for the required permissions to upload a new artefact to the S3 bucket.
@@ -17,10 +15,11 @@ Note that the above permissions are more than what is required in a real scenari
 * `AWS_SECRET_ACCESS_KEY`:  Secret key for a user with the required permissions.
 * `AWS_ACCESS_KEY_ID`:  Access key for a user with the required permissions.
 * `AWS_DEFAULT_REGION`:  Region where the target Elastic Beanstalk application is.
-* `S3_BUCKET_NAME`: Name of target S3 bucket.
-* `ARTEFACT_NAME`: Name of the artefact to be uploaded.
-* `TARGET_NAME`: Name of the S3 Bucket key.
 
+## Other uses
+* Uploading artefacts to S3 could be used in several contexts, in conjunction with the other sample integrations. 
+** You could upload a cloudformation template, or a Elastic Beanstalk deployable. 
+** You could upload to S3 an artefact which acts as an input to the the Source stage of an AWS CodePipeline, and triggers the pipeline.
 
 # License
 Copyright 2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
