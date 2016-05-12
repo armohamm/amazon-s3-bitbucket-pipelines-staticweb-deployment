@@ -16,7 +16,9 @@ Note that the above permissions are more than what is required in a real scenari
 * `AWS_ACCESS_KEY_ID`:  Access key for a user with the required permissions.
 * `AWS_DEFAULT_REGION`:  Region where the target Elastic Beanstalk application is.
 
-## Other uses
+## Other things to consider
+* You would ideally create/bundle your artefact as a build step before invoking the s3_upload python script.
+* If you are likely to upload multiple versions of the artefact iteratively, you might want to consider enabling [S3 bucket versioning](http://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) 
 * Uploading artefacts to S3 could be used in several contexts, in conjunction with the other sample integrations. 
 ** You could upload a cloudformation template, or a Elastic Beanstalk deployable. 
 ** You could upload to S3 an artefact which acts as an input to the the Source stage of an AWS CodePipeline, and triggers the pipeline.
