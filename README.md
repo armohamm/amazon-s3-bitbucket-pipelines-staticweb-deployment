@@ -6,7 +6,7 @@ An example script and configuration for uploading to an existing [Amazon S3](htt
 * Add the required Environment Variables below in Build settings of your Bitbucket repository.
 * Copy `s3_upload.py` to your project.
 * Copy `bitbucket-pipelines.yml` to your project.
-  * Or use your own, just be sure to include all steps in the sample yml file.
+    * Or use your own, just be sure to include all steps in the sample yml file.
 * Copy `SampleApp_Linux.zip` to your project if you would like to use a sample artefact.
 
 ## Required Permissions in AWS
