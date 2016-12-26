@@ -32,6 +32,5 @@ Note that the above permissions are more than what is required in a real scenari
   * Uploading to S3 could act as an input to the Source stage of an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) and trigger the pipeline.
 
 ## Acknowledgement
-This repo is forked from official bitbucket pipelines support script from Amazon. [Original
-Repository](https://bitbucket.org/awslabs/amazon-s3-bitbucket-pipelines-python). Also inspired by
+This repo is forked from [official bitbucket pipelines support script](https://bitbucket.org/awslabs/amazon-s3-bitbucket-pipelines-python) from Amazon. Also inspired by
  Marco Muscat's tutorial at his [personal website](http://www.lambdatwist.com/s3-hosting-guide/).
