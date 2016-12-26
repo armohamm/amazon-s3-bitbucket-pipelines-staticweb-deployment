@@ -34,4 +34,4 @@ Note that the above permissions are more than what is required in a real scenari
 ## Acknowledgement
 This repo is forked from official bitbucket pipelines support script from Amazon. [Original
 Repository](https://bitbucket.org/awslabs/amazon-s3-bitbucket-pipelines-python). Also inspired by
- Marco Muscat's tutoial at his [personal website](http://www.lambdatwist.com/s3-hosting-guide/).
+ Marco Muscat's tutorial at his [personal website](http://www.lambdatwist.com/s3-hosting-guide/).
